@@ -5,7 +5,7 @@ import { IProductType } from "@/types/types";
 
 const HomePage = async () => {
   "use cache"
-  const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
   const products: IProductType[] = await res.json();
   const priceIncresesProducts = products.filter(p => p.change.dir.toLowerCase() == "up");
   const priceDecreaseProducts = products.filter(p => p.change.dir.toLowerCase() === "down");

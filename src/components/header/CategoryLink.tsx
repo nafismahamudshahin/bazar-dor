@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const CategoryLink = async () => {
     'use cache'
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/categories");
+    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/categories");
     const categorys: ICategoryType[] = await res.json();
     return (
         <div className='flex gap-5 container mx-auto py-5 pl-5'>
