@@ -1,8 +1,9 @@
 import { ICategoryType } from '@/types/types';
 import Link from 'next/link';
-import React from 'react';
+
 
 const CategoryLink = async () => {
+    'use cache'
     const res = await fetch("https://api.api-store.workers.dev/api/bazardor/categories");
     const categorys: ICategoryType[] = await res.json();
     return (
