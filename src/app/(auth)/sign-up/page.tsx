@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import Link from "next/link";
 import { FormEvent } from "react";
@@ -132,7 +132,7 @@ const SignUp = () => {
                     {/* Login */}
                     <p className="pt-1 text-center text-[11px] text-gray-500">
                         অ্যাকাউন্ট আছে?{" "}
-                        <Link href="/sing-in" className="font-medium text-[#16a544] hover:underline">
+                        <Link href="/sign-in" className="font-medium text-[#16a544] hover:underline">
                             সাইন ইন করুন
                         </Link>
                     </p>
