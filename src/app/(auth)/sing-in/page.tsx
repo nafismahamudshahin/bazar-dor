@@ -1,71 +1,58 @@
-// "use client";
+"use client";
 
 import Link from "next/link";
 import { FormEvent } from "react";
 import { FaGithub, FaLongArrowAltLeft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
-const SignUp = () => {
+const Login = () => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         // const formData = new FormData(e.currentTarget);
 
-        // const name = formData.get("name");
         // const email = formData.get("email");
         // const password = formData.get("password");
-        // const confirmPassword = formData.get("confirmPassword");
 
         // console.log({
-        //     name,
         //     email,
         //     password,
-        //     confirmPassword,
         // });
     };
 
     return (
         <div className="min-h-screen bg-[#f3f8f4] px-4 py-8">
 
-            {/* Heading */}
-            <div className="mx-auto mb-5 max-w-107.5">
-                <h1 className="text-center text-xl font-bold text-[#17221a]">
-                    অ্যাকাউন্ট তৈরি করুন
+            {/* Header */}
+            <div className="mx-auto mb-5 max-w-107.5 text-center">
+                <h1 className="text-xl font-bold text-[#17221a]">
+                    সাইন ইন
                 </h1>
 
-                <p className="mt-1 text-center text-xs text-gray-500">
-                    বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন
+                <p className="mt-1 text-[11px] text-gray-500">
+                    বিস্তারিত দাম, বাজারের তুলনা ও আপডেট পেতে অ্যাকাউন্টে ঢুকুন
                 </p>
             </div>
 
-            {/* Form Card */}
+            {/* Card */}
             <div className="mx-auto w-full max-w-107.5 rounded-2xl border border-[#dce7df] bg-[#fbfdfb] p-5">
 
-                <form onSubmit={handleSubmit} className="space-y-3">
-
-                    {/* Name */}
-                    <div>
-                        <label className="mb-1.5 block text-xs font-medium text-[#202820]">
-                            নাম
-                        </label>
-
-                        <input
-                            name="name"
-                            type="text"
-                            placeholder="যেমন: রহিম উদ্দিন"
-                            required
-                            minLength={3}
-                            className="input input-sm h-9 w-full rounded-lg border-[#d8e3da] bg-white text-xs outline-none focus:border-green-500 focus:outline-none"
-                        />
-                    </div>
+                <form
+                    onSubmit={handleSubmit}
+                    className="space-y-3"
+                >
 
                     {/* Email */}
                     <div>
-                        <label className="mb-1.5 block text-xs font-medium text-[#202820]">
+                        <label
+                            htmlFor="email"
+                            className="mb-1.5 block text-xs font-medium text-[#202820]"
+                        >
                             ইমেইল
                         </label>
 
                         <input
+                            id="email"
                             name="email"
                             type="email"
                             placeholder="you@example.com"
@@ -76,11 +63,15 @@ const SignUp = () => {
 
                     {/* Password */}
                     <div>
-                        <label className="mb-1.5 block text-xs font-medium text-[#202820]">
+                        <label
+                            htmlFor="password"
+                            className="mb-1.5 block text-xs font-medium text-[#202820]"
+                        >
                             পাসওয়ার্ড
                         </label>
 
                         <input
+                            id="password"
                             name="password"
                             type="password"
                             placeholder="কমপক্ষে ৮ অক্ষর"
@@ -90,25 +81,12 @@ const SignUp = () => {
                         />
                     </div>
 
-                    {/* Confirm Password */}
-                    <div>
-                        <label className="mb-1.5 block text-xs font-medium text-[#202820]">
-                            পাসওয়ার্ড নিশ্চিত করুন
-                        </label>
-
-                        <input
-                            name="confirmPassword"
-                            type="password"
-                            placeholder="আবার লিখুন"
-                            required
-                            minLength={8}
-                            className="input input-sm h-9 w-full rounded-lg border-[#d8e3da] bg-white text-xs outline-none focus:border-green-500 focus:outline-none"
-                        />
-                    </div>
-
-                    {/* Submit */}
-                    <button type="submit" className="btn mt-1 h-9 min-h-9 w-full rounded-lg border-0 bg-[#20b24b] text-xs font-medium text-white hover:bg-[#199b40]">
-                        অ্যাকাউন্ট তৈরি করুন
+                    {/* Login Button */}
+                    <button
+                        type="submit"
+                        className="btn mt-1 h-9 min-h-9 w-full rounded-lg border-0 bg-[#07963d] text-xs font-medium text-white hover:bg-[#078536]"
+                    >
+                        সাইন ইন
                     </button>
 
                     {/* Divider */}
@@ -124,18 +102,21 @@ const SignUp = () => {
                         </button>
                         <button type="button" className="btn h-9 min-h-9 rounded-lg border border-[#d8e3da] bg-white text-[10px] font-normal text-gray-700 hover:bg-gray-50">
                             <FaGithub size={20} />
-
                             GitHub দিয়ে চালিয়ে যান
                         </button>
                     </div>
 
-                    {/* Login */}
+                    {/* Signup */}
                     <p className="pt-1 text-center text-[11px] text-gray-500">
-                        অ্যাকাউন্ট আছে?{" "}
-                        <Link href="/sing-in" className="font-medium text-[#16a544] hover:underline">
-                            সাইন ইন করুন
+                        অ্যাকাউন্ট নেই?{" "}
+                        <Link
+                            href="/sign-up"
+                            className="font-medium text-[#16a544] hover:underline"
+                        >
+                            সাইন আপ করুন
                         </Link>
                     </p>
+
                 </form>
             </div>
 
@@ -150,4 +131,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default Login;
