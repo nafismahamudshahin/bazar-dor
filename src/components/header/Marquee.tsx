@@ -1,14 +1,10 @@
 
+import { toBanglaNumber } from '@/commonFeatures';
 import { IProductType } from '@/types/types';
 import React from 'react';
 import Marquee from "react-fast-marquee";
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
-const toBanglaNumber = (number: number | string) => {
-    const banglaDigits = '০১২৩৪৫৬৭৮৯';
-
-    return String(number).replace(/\d/g, (digit) => banglaDigits[Number(digit)]);
-};
 
 
 const MarqueeHadeline = async () => {
