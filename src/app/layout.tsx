@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/header/NavBar";
 import CategoryLink from "@/components/header/CategoryLink";
+import MarqueeHadeline from "@/components/header/Marquee";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <header>
           <NavBar></NavBar>
           <CategoryLink></CategoryLink>
+          <MarqueeHadeline></MarqueeHadeline>
         </header>
         <main className="container mx-auto">
           {children}
