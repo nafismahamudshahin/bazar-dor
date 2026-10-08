@@ -39,7 +39,7 @@ const MarqueeHadeline = async () => {
                                 {toBanglaNumber(p.change.pct)}%
                             </span>
                         ) : (
-                            <span className="flex items-center text-green-600">
+                            <span className="flex items-center text-green-800">
                                 <FaCaretDown className='text-3xl' />
                                 {toBanglaNumber(p.change.pct)}%
                             </span>

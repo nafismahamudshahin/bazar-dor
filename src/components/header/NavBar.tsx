@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FaCartPlus, FaUserCircle } from 'react-icons/fa';
-const dateTime = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
+import { dateTime } from "@/commonFeatures"
 const NavBar = () => {
     return (
         <nav className='bg-base-100 shadow-sm '>

@@ -1,0 +1,1 @@
+export const dateTime = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
