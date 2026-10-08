@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/header/NavBar";
 import CategoryLink from "@/components/header/CategoryLink";
 import MarqueeHadeline from "@/components/header/Marquee";
+import Footer from "@/components/Footer";
 
 
 const geistMono = Geist_Mono({
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="container mx-auto">
           {children}
         </main>
+        <Footer></Footer>
       </body>
     </html>
   );
