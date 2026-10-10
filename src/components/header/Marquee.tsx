@@ -1,5 +1,5 @@
 
-import { toBanglaNumber } from '@/commonFeatures';
+import { toBanglaNumber, unitFinder } from '@/commonFeatures';
 import { IProductType } from '@/types/types';
 import React from 'react';
 import Marquee from "react-fast-marquee";
@@ -26,7 +26,7 @@ const MarqueeHadeline = async () => {
                         </span>
 
                         <span>
-                            {toBanglaNumber(p.today)} টাকা/কেজি
+                            {toBanglaNumber(p.today)} টাকা/{unitFinder(p.unit)}
                         </span>
 
                         {p.change.dir === 'up' ? (
