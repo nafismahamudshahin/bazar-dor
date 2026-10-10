@@ -14,31 +14,35 @@ const NavBar = () => {
                             <h3 className='font-bold'> বাজার দর</h3>
                             <p className='text-sm'>{dateTime}</p>
                         </div>
-
                     </Link>
                 </div>
                 <div>
                     <div className="flex justify-center items-center">
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className='flex items-center gap-2 cursor-pointer'>
-                                <FaUserCircle className='text-4xl text-blue-700' />
+                                <FaUserCircle className='text-4xl text-green-500' />
                                 <div>
                                     <h3 className='font-semibold'>user name</h3>
                                 </div>
                             </div>
                             <ul
                                 tabIndex={-1}
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+
+                                className="menu menu-sm dropdown-content z-50 bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
+                                <li className='hover:bg-transparent cursor-copy mb-2 py-2'>
+                                    <p className='flex flex-col justify-start items-start leading-0 space-y-1'>
+                                        <span className='font-bold'>Rezwan Ahmed</span>
+                                        <span className='text-gray-500'>rezwanahmed@gmail.com</span>
+                                    </p>
+                                </li>
                                 <li>
                                     <a className="justify-between">
-                                        Profile
-                                        <span className="badge">New</span>
+                                        👤 আমার প্রোফাইল
+
                                     </a>
                                 </li>
-                                <li><a>Settings</a></li>
-                                <li><a>Logout</a></li>
+                                <li className='text-red-500'><a>↩ সাইন আউট</a></li>
                             </ul>
-
                         </div>
                     </div>
                 </div>
