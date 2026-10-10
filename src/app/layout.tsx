@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme="light"
       className={`${hindSiliguri.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[#f3f8f4]">
         <header>
           <NavBar></NavBar>
           <CategoryLink></CategoryLink>
