@@ -3,8 +3,7 @@ import SocalLogin from "@/components/socialLogin/SocalLogin";
 import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
-import { FaGithub, FaLongArrowAltLeft } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const Login = () => {
     const [errorMessage, setErrorMessage] = useState<string>("")
