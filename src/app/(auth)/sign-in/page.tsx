@@ -1,4 +1,5 @@
 "use client";
+import SocalLogin from "@/components/socialLogin/SocalLogin";
 import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
@@ -100,16 +101,8 @@ const Login = () => {
                     </div>
 
                     {/* Social */}
-                    <div className="grid grid-cols-2 gap-2">
-                        <button type="button" className="btn h-9 min-h-9 rounded-lg border border-[#d8e3da] bg-white text-[10px] font-normal text-gray-700 hover:bg-gray-50">
-                            <FcGoogle size={20} />
-                            Google দিয়ে চালিয়ে যান
-                        </button>
-                        <button type="button" className="btn h-9 min-h-9 rounded-lg border border-[#d8e3da] bg-white text-[10px] font-normal text-gray-700 hover:bg-gray-50">
-                            <FaGithub size={20} />
-                            GitHub দিয়ে চালিয়ে যান
-                        </button>
-                    </div>
+                    <SocalLogin></SocalLogin>
+
 
                     {/* Signup */}
                     <p className="pt-1 text-center text-[11px] text-gray-500">
