@@ -14,7 +14,7 @@ const MarqueeHadeline = async () => {
     const products = data.slice(0, 10);
     console.log(products)
     return (
-        <div className=' border border-base-300 my-2'>
+        <div className='py-1 my-1 bg-white border border-base-300'>
             <Marquee>
                 {products.map((p) => (
                     <span

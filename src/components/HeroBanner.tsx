@@ -1,6 +1,7 @@
 import { dateTime } from "@/commonFeatures";
 import heroImg from "@/assets/bazar-hero.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroBanner = () => {
     return (
@@ -28,9 +29,9 @@ const HeroBanner = () => {
                             </p>
                         </div>
                         <div className="flex flex-wrap items-center gap-3">
-                            <button className="btn rounded-xl border-0 bg-green-600 px-6 text-white shadow-lg shadow-green-600/20 hover:bg-green-700">
+                            <Link href="#allProducts" className="btn rounded-xl border-0 bg-green-600 px-6 text-white shadow-lg shadow-green-600/20 hover:bg-green-700">
                                 সব পণ্য দেখুন →
-                            </button>
+                            </Link>
                             <button className="btn btn-outline rounded-xl border-green-200 bg-white/70 text-green-700 hover:border-green-600 hover:bg-green-50">
                                 আজকের পরিবর্তন
                             </button>
