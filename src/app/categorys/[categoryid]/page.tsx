@@ -1,14 +1,18 @@
 import CategoryPage from "@/components/CategoryPage";
 import { IProductType } from "@/types/types";
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 async function CategoryContent({ params, }: { params: Promise<{ categoryid: string }> }) {
     const { categoryid } = await params;
     const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products?category=${categoryid}`);
     if (!res.ok) {
-        throw new Error("Failed to fetch products");
+        notFound();
     }
     const category: IProductType[] = await res.json();
+    if (category.length === 0) {
+        notFound();
+    }
     return <CategoryPage category={category} />;
 }
 
