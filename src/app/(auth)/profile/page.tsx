@@ -1,4 +1,5 @@
 "use client";
+import { useSession, signOut } from "@/lib/auth-client";
 import { FormEvent } from "react";
 import { CiLogout } from "react-icons/ci";
 
@@ -11,6 +12,7 @@ const ProfilePage = () => {
 
         // console.log({ name });
     };
+    const { data: session, isPending } = useSession()
     return (
         <div className="min-h-screen bg-[#f3f8f4] px-4 py-8">
             <div className="mx-auto max-w-5xl">
@@ -24,11 +26,11 @@ const ProfilePage = () => {
                             <div className="relative h-12 w-12 overflow-hidden rounded-xl bg-[#eef3ef]">
                             </div>
                             <div>
-                                <h2 className="text-sm font-bold text-[#202820]">Rezwan Ahmed</h2>
-                                <p className="mt-0.5 text-xs text-gray-500">rezwanahmed@gmail.com</p>
+                                <h2 className="text-sm font-bold text-[#202820]">{session?.user?.name}</h2>
+                                <p className="mt-0.5 text-xs text-gray-500">{session?.user?.email}</p>
                             </div>
                         </div>
-                        <button type="button" className="btn btn-outline h-8 min-h-8 rounded-lg border-red-400 px-4 text-[11px] font-normal text-red-500 hover:bg-red-50">
+                        <button onClick={() => signOut()} type="button" className="btn btn-outline h-8 min-h-8 rounded-lg border-red-400 px-4 text-[11px] font-normal text-red-500 hover:bg-red-50">
                             <CiLogout size={15} /> সাইন আউট
                         </button>
                     </div>
@@ -42,7 +44,7 @@ const ProfilePage = () => {
                                 id="name"
                                 name="name"
                                 type="text"
-                                defaultValue="Rezwan Ahmed"
+                                defaultValue={session?.user?.name}
                                 className="input input-sm h-9 w-full rounded-lg border-[#d8e3da] bg-white text-xs focus:border-green-500 focus:outline-none"
                             />
                         </div>

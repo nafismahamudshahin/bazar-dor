@@ -2,11 +2,12 @@
 
 import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { FaGithub, FaLongArrowAltLeft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+    const [errorMessage, setErrorMessage] = useState<string>("")
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -20,10 +21,9 @@ const Login = () => {
             password: password as string,
             callbackURL: "/profile",
         })
-        console.log({
-            email,
-            password,
-        });
+        if (error) {
+            setErrorMessage("Invalid email or password.")
+        }
     };
 
     return (
@@ -42,7 +42,7 @@ const Login = () => {
 
             {/* Card */}
             <div className="mx-auto w-full max-w-107.5 rounded-2xl border border-[#dce7df] bg-[#fbfdfb] p-5">
-
+                <p className="text-red-500 text-sm">{errorMessage}</p>
                 <form
                     onSubmit={handleSubmit}
                     className="space-y-3"
