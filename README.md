@@ -103,27 +103,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | `npm run start` | Run the production build |
 | `npm run lint` | Lint the code with ESLint |
 
-## 🔌 Data Source
-
-Product and category data is read from a JSON API:
-
-| Endpoint | Returns |
-|---|---|
-| `GET /api/bazardor/categories` | List of categories (`slug`, `nameBn`, `icon`) |
-| `GET /api/bazardor/products` | All products with today / yesterday / last week / last month prices, change and per-market prices |
-| `GET /api/bazardor/products?category=<slug>` | Products in one category |
-
-## 🗺️ Roadmap
-
-Ideas for making the project even better:
-
-- [ ] 🔍 Search products by Bangla name
-- [ ] 📉 Price history charts (yesterday, last week, last month)
-- [ ] 🔔 Price-drop alerts and a favourites list
-- [ ] 🌙 Dark mode
-- [ ] 📱 Installable PWA with offline support
-- [ ] 🧮 Basket calculator to estimate monthly grocery cost
-- [ ] 🌐 English / Bangla language toggle
 
 ## 👨‍💻 Author
 
@@ -131,6 +110,7 @@ Ideas for making the project even better:
 
 - GitHub: [@nafismahamudshahin](https://github.com/nafismahamudshahin)
 - Portfolio: [nafismahamudshahin.github.io](https://nafismahamudshahin.github.io)
+- Linkedin: [@nafismahamudshahin-](https://www.linkedin.com/in/nafismahamudshahin-)
 
 ---
 
