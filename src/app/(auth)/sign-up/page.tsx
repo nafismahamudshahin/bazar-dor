@@ -5,6 +5,7 @@ import { signUp } from "@/lib/auth-client";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
     const [passwordError, setPasswordError] = useState<string>("")
@@ -18,17 +19,22 @@ const SignUp = () => {
         const password = formData.get("password");
         const confirmPassword = formData.get("confirmPassword");
         if (password !== confirmPassword) {
-            setPasswordError("Password and confirm password are not same.")
+            setPasswordError("পাসওয়ার্ড এবং কনফার্ম পাসওয়ার্ড মিলছে না।")
         }
-        await signUp.email({
+        const { error } = await signUp.email({
             name: name as string,
             email: email as string,
             password: password as string
         })
+        if (error) {
+            toast.error("অ্যাকাউন্ট তৈরি করা যায়নি। আবার চেষ্টা করুন।");
+        } else {
+            toast.success("আপনার অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
+        }
     };
 
     return (
-        <div className="min-h-screen bg-[#f3f8f4] px-4 py-8">
+        <div className="min-h-screen px-4 py-8">
 
             {/* Heading */}
             <div className="mx-auto mb-5 max-w-107.5">

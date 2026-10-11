@@ -1,14 +1,21 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     scrollbar-gutter: stable;
 }
 
-@utility scrollbar-hide {
-    scrollbar-width: none;
+.Toastify__toast--success {
+    background: #07963d !important;
+    color: white !important;
+}
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+.Toastify__toast--error {
+    background: #dc2626 !important;
+    color: white !important;
 }

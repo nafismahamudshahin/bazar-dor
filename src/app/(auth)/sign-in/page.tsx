@@ -4,6 +4,7 @@ import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Login = () => {
     const [errorMessage, setErrorMessage] = useState<string>("")
@@ -21,12 +22,15 @@ const Login = () => {
             callbackURL: "/profile",
         })
         if (error) {
-            setErrorMessage("Invalid email or password.")
+            setErrorMessage("লগইন ব্যর্থ হয়েছে। ইমেইল ও পাসওয়ার্ড যাচাই করুন।")
+            toast.error("লগইন ব্যর্থ হয়েছে। ইমেইল ও পাসওয়ার্ড যাচাই করুন।");
+        } else {
+            toast.success("সফলভাবে লগইন হয়েছে! স্বাগতম।");
         }
     };
 
     return (
-        <div className="min-h-screen bg-[#f3f8f4] px-4 py-8">
+        <div className="min-h-screen px-4 py-8">
 
             {/* Header */}
             <div className="mx-auto mb-5 max-w-107.5 text-center">

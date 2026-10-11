@@ -1,6 +1,7 @@
 
 import { toBanglaNumber, unitFinder } from '@/commonFeatures';
 import { IProductType } from '@/types/types';
+import Link from 'next/link';
 import React from 'react';
 import Marquee from "react-fast-marquee";
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
@@ -12,12 +13,11 @@ const MarqueeHadeline = async () => {
     const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
     const data: IProductType[] = await res.json();
     const products = data.slice(0, 10);
-    console.log(products)
     return (
         <div className='py-1 my-1 bg-white border border-base-300'>
-            <Marquee>
+            <Marquee pauseOnHover speed={100}>
                 {products.map((p) => (
-                    <span
+                    <Link href={`/products/${p.slug}`}
                         className="flex items-center gap-4 mr-10"
                         key={p.id}
                     >
@@ -40,7 +40,7 @@ const MarqueeHadeline = async () => {
                                 {toBanglaNumber(p.change.pct)}%
                             </span>
                         )}
-                    </span>
+                    </Link>
                 ))}
             </Marquee>
         </div>

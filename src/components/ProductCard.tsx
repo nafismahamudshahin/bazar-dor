@@ -30,7 +30,7 @@ const ProductCard = ({ product }: { product: IProductType }) => {
         }
     </>
     return (
-        <Link href={`/products/${product.slug}`}>
+        <Link className='border border-transparent rounded-2xl hover:border-green-500' href={`/products/${product.slug}`}>
             <div className="w-full rounded-2xl border border-gray-200 bg-[#f8faf8] p-4 shadow-sm">
                 {/* Top */}
                 <div className="flex items-center gap-3">

@@ -4,17 +4,29 @@ import UserEmail from "@/components/profile/UserEmail";
 import UserName from "@/components/profile/UserName";
 import { updateUser, useSession } from "@/lib/auth-client";
 import { FormEvent } from "react";
+import { toast } from "react-toastify";
 const ProfilePage = () => {
+    const { data: session, isPending } = useSession()
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
-        const name = formData.get("name");
-        await updateUser({
-            name: name as string,
+        const name = formData.get("name") as string;
+
+        if (session?.user?.name.toLowerCase() == name.toLowerCase().trim()) {
+            toast.info("আপনার এই নামটি ইতোমধ্যে ব্যবহার করা হয়েছে।")
+            return
+        }
+        const { error } = await updateUser({
+            name: name.trim()
         })
+        if (error) {
+            toast.error("নাম আপডেট করা যায়নি। আবার চেষ্টা করুন।");
+        } else {
+            toast.success("আপনার নাম সফলভাবে আপডেট হয়েছে!");
+        }
     };
-    const { data: session, isPending } = useSession()
     if (isPending) {
         return <p className="text-center min-h-110"><span className="loading loading-spinner text-accent"></span></p>
     }

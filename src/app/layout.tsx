@@ -3,6 +3,8 @@ import { Geist_Mono, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/header/NavBar";
 import Footer from "@/components/Footer";
+import { ToastContainer } from "react-toastify";
+import MarqueeHadeline from "@/components/header/Marquee";
 
 
 
@@ -32,10 +34,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-[#f3f8f4]">
         <NavBar></NavBar>
+        <MarqueeHadeline></MarqueeHadeline>
         <main className="container mx-auto">
           {children}
         </main>
         <Footer></Footer>
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar
+          closeOnClick
+          pauseOnHover
+          draggable
+          theme="light"
+          toastClassName="!rounded-xl !border !border-[#dce7df] !shadow-lg"
+        />
       </body>
     </html>
   );

@@ -2,17 +2,23 @@
 import { signOut } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { CiLogout } from 'react-icons/ci';
+import { toast } from 'react-toastify';
 
 const SignOutBtn = () => {
     const router = useRouter();
     const handleSignOut = async () => {
-        await signOut({
+        const { error } = await signOut({
             fetchOptions: {
                 onSuccess: () => {
                     router.replace("/sign-in");
                 },
             },
         })
+        if (error) {
+            toast.error("লগআউট করা যায়নি। আবার চেষ্টা করুন।");
+        } else {
+            toast.success("সফলভাবে লগআউট হয়েছে!");
+        }
     }
 
     return (

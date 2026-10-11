@@ -2,17 +2,28 @@
 import { signIn } from '@/lib/auth-client';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import { toast } from 'react-toastify';
 
 const SocalLogin = () => {
     const handleContinueWithGoogle = async () => {
-        await signIn.social({
+        const { error } = await signIn.social({
             provider: "google",
         })
+        if (error) {
+            toast.error("Please give me some valid information.");
+        } else {
+            toast.success("Wellcome to your Account.")
+        }
     }
     const handleContinueWithGithub = async () => {
-        await signIn.social({
+        const { error } = await signIn.social({
             provider: "github",
         })
+        if (error) {
+            toast.error("Please give me some valid information.");
+        } else {
+            toast.success("Wellcome to your Account.")
+        }
     }
     return (
         <div className="grid grid-cols-2 gap-2">

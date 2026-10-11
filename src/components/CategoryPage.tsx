@@ -32,8 +32,8 @@ const CategoryPage = ({ category }: { category: IProductType[] }) => {
                         <span className="text-[10px] text-gray-500">সাজান</span>
                         <select onChange={(e) => setSelectFilter(e.target.value)} className="select select-sm h-8 min-h-8 w-auto rounded-lg border-[#d8e3da] bg-white px-3 text-[10px] text-gray-700 focus:border-green-500 focus:outline-none">
                             <option value="default">ডিফল্ট</option>
-                            <option value="asc">ছোট থেকে বড়</option>
-                            <option value="desc">বড় থেকে ছোট</option>
+                            <option value="asc">দাম কম থেকে বেশি</option>
+                            <option value="desc">দাম বেশি থেকে কম</option>
                         </select>
                     </div>
                 </div>

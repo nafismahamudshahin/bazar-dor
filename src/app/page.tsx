@@ -2,19 +2,20 @@ import { toBanglaNumber } from "@/commonFeatures";
 import HeroBanner from "@/components/HeroBanner";
 import ProductCard from "@/components/ProductCard";
 import { IProductType } from "@/types/types";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 const HomePage = async () => {
   "use cache"
   const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
   const products: IProductType[] = await res.json();
-  const priceIncresesProducts = products.filter(p => p.change.dir.toLowerCase() == "up");
-  const priceDecreaseProducts = products.filter(p => p.change.dir.toLowerCase() === "down");
+  const priceIncresesProducts = products.filter(p => p.change.dir.toLowerCase() == "up").sort((a, b) => b.change.pct - a.change.pct).slice(0, 6);
+  const priceDecreaseProducts = products.filter(p => p.change.dir.toLowerCase() === "down").sort((a, b) => a.change.pct - b.change.pct).slice(0, 6);
   return (
     <section className="mx-2">
       <HeroBanner></HeroBanner>
       {/* price incress products list */}
       <div>
-        <h3 className="text-2xl font-semibold py-3 mt-5">আজ দাম বেড়েছে</h3>
+        <h3 className="text-2xl font-semibold py-3 mt-5 flex gap-2"> <FaCaretUp className='text-red-500 text-3xl' />আজ দাম বেড়েছে</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {
             priceIncresesProducts.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
@@ -23,7 +24,7 @@ const HomePage = async () => {
       </div>
 
       <div>
-        <h3 className="text-2xl font-semibold py-3 mt-5">আজ দাম কমেছে</h3>
+        <h3 className="text-2xl font-semibold py-3 mt-5 flex gap-2"> <FaCaretDown className='text-green-600 text-3xl' />আজ দাম কমেছে</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {
             priceDecreaseProducts.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
