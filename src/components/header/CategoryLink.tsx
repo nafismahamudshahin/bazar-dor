@@ -31,8 +31,8 @@ const CategoryLink = () => {
         return "Loading..."
     }
     return (
-        <div className="container mx-auto px-4 py-4">
-            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="container mx-auto px-4 py-2 sticky z-50 top-17 bg-[#f3f8f4] mt-0.5">
+            <div className="flex gap-3 overflow-x-auto scrollbar-hide">
                 {categories.map((category) => (
                     <Link
                         key={category.slug}

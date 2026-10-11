@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { Geist_Mono, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/header/NavBar";
-import CategoryLink from "@/components/header/CategoryLink";
-import MarqueeHadeline from "@/components/header/Marquee";
 import Footer from "@/components/Footer";
-import { Suspense } from "react";
+
 
 
 const geistMono = Geist_Mono({
@@ -33,13 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${hindSiliguri.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#f3f8f4]">
-        <header>
-          <NavBar></NavBar>
-          <Suspense fallback="">
-            <CategoryLink></CategoryLink>
-          </Suspense>
-          <MarqueeHadeline></MarqueeHadeline>
-        </header>
+        <NavBar></NavBar>
         <main className="container mx-auto">
           {children}
         </main>

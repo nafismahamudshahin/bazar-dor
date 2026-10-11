@@ -2,6 +2,7 @@ import { toBanglaNumber } from "@/commonFeatures";
 import HeroBanner from "@/components/HeroBanner";
 import ProductCard from "@/components/ProductCard";
 import { IProductType } from "@/types/types";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 const HomePage = async () => {
   "use cache"
@@ -14,7 +15,7 @@ const HomePage = async () => {
       <HeroBanner></HeroBanner>
       {/* price incress products list */}
       <div>
-        <h3 className="text-2xl font-semibold py-3 mt-5">আজ দাম বেড়েছে</h3>
+        <h3 className="text-2xl font-semibold py-3 mt-5 flex gap-2"><FaCaretUp className='text-red-500 text-3xl' /> আজ দাম বেড়েছে</h3>
         <div className="grid grid-cols-3 gap-5">
           {
             priceIncresesProducts.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
@@ -23,7 +24,7 @@ const HomePage = async () => {
       </div>
 
       <div>
-        <h3 className="text-2xl font-semibold py-3 mt-5">আজ দাম কমেছে</h3>
+        <h3 className="text-2xl font-semibold py-3 mt-5 flex gap-2"><FaCaretDown className='text-green-600 text-3xl' /> আজ দাম কমেছে</h3>
         <div className="grid grid-cols-3 gap-5">
           {
             priceDecreaseProducts.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
@@ -31,7 +32,7 @@ const HomePage = async () => {
         </div>
       </div>
 
-      <div>
+      <div id="allProducts">
         <div className="py-5 mt-5">
           <span className="text-2xl font-semibold">সব পণ্য</span>
           <p className="text-gray-500">{`মোট ${toBanglaNumber(products.length)}টি পণ্য দেখানো হচ্ছে`}</p>
