@@ -1,4 +1,5 @@
 import CategoryPage from "@/components/CategoryPage";
+import CategoryPageSkeleton from "@/components/Skeletons/CategoryPageSkeleton";
 import { IProductType } from "@/types/types";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -21,7 +22,7 @@ const CategoryDetailsPage = ({ params, }: { params: Promise<{ categoryid: string
 
     return (
         <section>
-            <Suspense fallback="loading...">
+            <Suspense fallback={<CategoryPageSkeleton></CategoryPageSkeleton>}>
                 <CategoryContent params={params} />
             </Suspense>
         </section>
