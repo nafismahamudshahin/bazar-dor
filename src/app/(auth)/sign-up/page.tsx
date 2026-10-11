@@ -3,11 +3,14 @@
 import SocalLogin from "@/components/socialLogin/SocalLogin";
 import { signUp } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { toast } from "react-toastify";
 
+
 const SignUp = () => {
+    const router = useRouter()
     const [passwordError, setPasswordError] = useState<string>("")
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -24,12 +27,14 @@ const SignUp = () => {
         const { error } = await signUp.email({
             name: name as string,
             email: email as string,
-            password: password as string
+            password: password as string,
+            callbackURL: "/sign-in",
         })
         if (error) {
             toast.error("অ্যাকাউন্ট তৈরি করা যায়নি। আবার চেষ্টা করুন।");
         } else {
             toast.success("আপনার অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
+            router.push("/sign-in");
         }
     };
 
