@@ -1,27 +1,30 @@
 "use client";
 
+import { signUp } from "@/lib/auth-client";
 import Link from "next/link";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { FaGithub, FaLongArrowAltLeft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const [passwordError, setPasswordError] = useState<string>("")
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // const formData = new FormData(e.currentTarget);
+        const formData = new FormData(e.currentTarget);
 
-        // const name = formData.get("name");
-        // const email = formData.get("email");
-        // const password = formData.get("password");
-        // const confirmPassword = formData.get("confirmPassword");
-
-        // console.log({
-        //     name,
-        //     email,
-        //     password,
-        //     confirmPassword,
-        // });
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const password = formData.get("password");
+        const confirmPassword = formData.get("confirmPassword");
+        if (password !== confirmPassword) {
+            setPasswordError("Password and confirm password are not same.")
+        }
+        const { user, error } = await signUp.email({
+            name: name as string,
+            email: email as string,
+            password: password as string
+        })
     };
 
     return (
@@ -76,6 +79,7 @@ const SignUp = () => {
 
                     {/* Password */}
                     <div>
+                        <p className="text-red-500">{passwordError}</p>
                         <label className="mb-1.5 block text-xs font-medium text-[#202820]">
                             পাসওয়ার্ড
                         </label>
