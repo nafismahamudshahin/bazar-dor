@@ -15,7 +15,7 @@ const HomePage = async () => {
       {/* price incress products list */}
       <div>
         <h3 className="text-2xl font-semibold py-3 mt-5">আজ দাম বেড়েছে</h3>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {
             priceIncresesProducts.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
           }
@@ -24,7 +24,7 @@ const HomePage = async () => {
 
       <div>
         <h3 className="text-2xl font-semibold py-3 mt-5">আজ দাম কমেছে</h3>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {
             priceDecreaseProducts.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
           }
