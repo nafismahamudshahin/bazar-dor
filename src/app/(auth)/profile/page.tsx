@@ -1,5 +1,7 @@
 "use client";
 import SignOutBtn from "@/components/header/SignOutBtn";
+import UserEmail from "@/components/profile/UserEmail";
+import UserName from "@/components/profile/UserName";
 import { useSession } from "@/lib/auth-client";
 import { FormEvent } from "react";
 const ProfilePage = () => {
@@ -28,8 +30,12 @@ const ProfilePage = () => {
                             <div className="relative h-12 w-12 overflow-hidden rounded-xl bg-[#eef3ef]">
                             </div>
                             <div>
-                                <h2 className="text-sm font-bold text-[#202820]">{session?.user?.name}</h2>
-                                <p className="mt-0.5 text-xs text-gray-500">{session?.user?.email}</p>
+                                <h2 className="text-sm font-bold text-[#202820]">
+                                    <UserName></UserName>
+                                </h2>
+                                <p className="mt-0.5 text-xs text-gray-500">
+                                    <UserEmail></UserEmail>
+                                </p>
                             </div>
                         </div>
                         <button type="button" className="btn list-none btn-outline h-8 min-h-8 rounded-lg border-red-400 px-4 text-[11px] font-normal text-red-500 hover:bg-red-50">

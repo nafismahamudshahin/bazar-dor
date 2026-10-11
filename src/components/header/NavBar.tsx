@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { FaCartPlus, FaUserCircle } from 'react-icons/fa';
+import { FaCartPlus } from 'react-icons/fa';
 import { dateTime } from "@/commonFeatures"
-import SignOutBtn from './SignOutBtn';
+import SingInAndSingUpBtn from './SingInAndSingUpBtn';
 const NavBar = () => {
     return (
         <nav className='bg-base-100 shadow-sm '>
@@ -17,35 +17,7 @@ const NavBar = () => {
                         </div>
                     </Link>
                 </div>
-                <div>
-                    <div className="flex justify-center items-center">
-                        <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className='flex items-center gap-2 cursor-pointer'>
-                                <FaUserCircle className='text-4xl text-green-500' />
-                                <div>
-                                    <h3 className='font-semibold'>user name</h3>
-                                </div>
-                            </div>
-                            <ul
-                                tabIndex={-1}
-
-                                className="menu menu-sm dropdown-content z-50 bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
-                                <li className='hover:bg-transparent cursor-copy mb-2 py-2'>
-                                    <p className='flex flex-col justify-start items-start leading-0 space-y-1'>
-                                        <span className='font-bold'>Rezwan Ahmed</span>
-                                        <span className='text-gray-500'>rezwanahmed@gmail.com</span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <Link href="/profile" className="justify-between">
-                                        👤 আমার প্রোফাইল
-                                    </Link>
-                                </li>
-                                <SignOutBtn></SignOutBtn>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <SingInAndSingUpBtn></SingInAndSingUpBtn>
             </div>
         </nav>
     );
