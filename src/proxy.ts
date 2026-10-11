@@ -1,19 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
-import { headers } from "next/headers";
-import { auth } from "@/lib/auth";
 
 export async function proxy(request: NextRequest) {
-    const session = await auth.api.getSession({
-        headers: await headers()
-    })
+    const response = await fetch(new URL("/api/auth/get-session", request.url), {
+        headers: {
+            cookie: request.headers.get("cookie") ?? "",
+        },
+        cache: "no-store",
+    });
 
+    if (!response.ok) {
+        return NextResponse.json(
+            { error: "Unable to verify session" },
+            { status: 503 }
+        );
+    }
+    const session = await response.json();
     if (!session) {
         return NextResponse.redirect(new URL("/sign-in", request.url));
     }
-
     return NextResponse.next();
 }
-
 export const config = {
-    matcher: ["/profile", "/products/:path*"], // Specify the routes the middleware applies to
+    matcher: ["/profile", "/products/:path*"],
 };
