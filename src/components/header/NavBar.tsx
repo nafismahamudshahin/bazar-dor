@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FaCartPlus, FaUserCircle } from 'react-icons/fa';
 import { dateTime } from "@/commonFeatures"
+import SignOutBtn from './SignOutBtn';
 const NavBar = () => {
     return (
         <nav className='bg-base-100 shadow-sm '>
@@ -36,12 +37,11 @@ const NavBar = () => {
                                     </p>
                                 </li>
                                 <li>
-                                    <a className="justify-between">
+                                    <Link href="/profile" className="justify-between">
                                         👤 আমার প্রোফাইল
-
-                                    </a>
+                                    </Link>
                                 </li>
-                                <li className='text-red-500'><a>↩ সাইন আউট</a></li>
+                                <SignOutBtn></SignOutBtn>
                             </ul>
                         </div>
                     </div>

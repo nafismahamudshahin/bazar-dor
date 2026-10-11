@@ -1,8 +1,7 @@
 "use client";
-import { useSession, signOut } from "@/lib/auth-client";
+import SignOutBtn from "@/components/header/SignOutBtn";
+import { useSession } from "@/lib/auth-client";
 import { FormEvent } from "react";
-import { CiLogout } from "react-icons/ci";
-
 const ProfilePage = () => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -13,8 +12,11 @@ const ProfilePage = () => {
         // console.log({ name });
     };
     const { data: session, isPending } = useSession()
+    if (isPending) {
+        return <p className="text-center min-h-110"><span className="loading loading-spinner text-accent"></span></p>
+    }
     return (
-        <div className="min-h-screen bg-[#f3f8f4] px-4 py-8">
+        <div className="bg-[#f3f8f4] px-4 py-8">
             <div className="mx-auto max-w-5xl">
                 <div className="mb-5">
                     <h1 className="text-xl font-bold text-[#17221a]">আমার প্রোফাইল</h1>
@@ -30,8 +32,8 @@ const ProfilePage = () => {
                                 <p className="mt-0.5 text-xs text-gray-500">{session?.user?.email}</p>
                             </div>
                         </div>
-                        <button onClick={() => signOut()} type="button" className="btn btn-outline h-8 min-h-8 rounded-lg border-red-400 px-4 text-[11px] font-normal text-red-500 hover:bg-red-50">
-                            <CiLogout size={15} /> সাইন আউট
+                        <button type="button" className="btn list-none btn-outline h-8 min-h-8 rounded-lg border-red-400 px-4 text-[11px] font-normal text-red-500 hover:bg-red-50">
+                            <SignOutBtn></SignOutBtn>
                         </button>
                     </div>
                 </div>

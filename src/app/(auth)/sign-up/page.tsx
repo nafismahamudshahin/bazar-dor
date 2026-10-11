@@ -20,7 +20,7 @@ const SignUp = () => {
         if (password !== confirmPassword) {
             setPasswordError("Password and confirm password are not same.")
         }
-        const { user, error } = await signUp.email({
+        await signUp.email({
             name: name as string,
             email: email as string,
             password: password as string

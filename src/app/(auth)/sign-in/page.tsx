@@ -16,7 +16,7 @@ const Login = () => {
         const email = formData.get("email");
         const password = formData.get("password");
 
-        const { user, error } = await signIn.email({
+        const { error } = await signIn.email({
             email: email as string,
             password: password as string,
             callbackURL: "/profile",
