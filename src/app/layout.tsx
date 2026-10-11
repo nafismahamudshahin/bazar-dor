@@ -5,6 +5,7 @@ import NavBar from "@/components/header/NavBar";
 import CategoryLink from "@/components/header/CategoryLink";
 import MarqueeHadeline from "@/components/header/Marquee";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
 
 
 const geistMono = Geist_Mono({
@@ -34,7 +35,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-[#f3f8f4]">
         <header>
           <NavBar></NavBar>
-          <CategoryLink></CategoryLink>
+          <Suspense fallback="">
+            <CategoryLink></CategoryLink>
+          </Suspense>
           <MarqueeHadeline></MarqueeHadeline>
         </header>
         <main className="container mx-auto">
