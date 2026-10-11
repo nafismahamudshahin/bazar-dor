@@ -3,6 +3,7 @@ import { ICategoryType } from '@/types/types';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const loadCategory = async (): Promise<ICategoryType[]> => {
     const res = await fetch("https://api.abcz.workers.dev/api/bazardor/categories");
@@ -18,15 +19,14 @@ const CategoryLink = () => {
                 const data = await loadCategory();
                 setCategories(data);
             } catch (error) {
-                console.error(error);
+                toast.error(error as string)
             } finally {
                 setLoading(false);
             }
         };
-        fetchCategories()
+        fetchCategories();
     }, [])
-    const path = usePathname()
-    console.log(path)
+    const path = usePathname();
     if (loading) {
         return "Loading..."
     }
