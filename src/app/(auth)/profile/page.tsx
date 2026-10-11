@@ -2,16 +2,17 @@
 import SignOutBtn from "@/components/header/SignOutBtn";
 import UserEmail from "@/components/profile/UserEmail";
 import UserName from "@/components/profile/UserName";
-import { useSession } from "@/lib/auth-client";
+import { updateUser, useSession } from "@/lib/auth-client";
 import { FormEvent } from "react";
 const ProfilePage = () => {
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // const formData = new FormData(e.currentTarget);
-        // const name = formData.get("name");
-
-        // console.log({ name });
+        const formData = new FormData(e.currentTarget);
+        const name = formData.get("name");
+        await updateUser({
+            name: name as string,
+        })
     };
     const { data: session, isPending } = useSession()
     if (isPending) {
