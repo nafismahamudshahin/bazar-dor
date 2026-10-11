@@ -1,5 +1,6 @@
 
 import ProductDetailsCard from "@/components/ProductDetailsCard";
+import ProductDetailsSkeleton from "@/components/Skeletons/ProductDetailsSkeleton";
 import { IProductType } from "@/types/types";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -24,7 +25,7 @@ async function ProductContent({ params }: { params: Promise<{ slug: string }> })
 const ProductDetailsPage = ({ params }: { params: Promise<{ slug: string }> }) => {
     return (
         <section>
-            <Suspense fallback={<p className="p-4">Loading product...</p>}>
+            <Suspense fallback={<ProductDetailsSkeleton></ProductDetailsSkeleton>}>
                 <ProductContent params={params} />
             </Suspense>
         </section>
