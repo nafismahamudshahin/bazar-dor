@@ -6,11 +6,12 @@ import Link from "next/link";
 import SignOutBtn from "./SignOutBtn";
 import UserName from "../profile/UserName";
 import UserEmail from "../profile/UserEmail";
+import UserNavbarProfileSkeleton from "../Skeletons/UserNavbarProfileSkeleton";
 
 const SingInAndSingUpBtn = () => {
     const { data: session, isPending } = useSession()
     if (isPending) {
-        return ""
+        return <UserNavbarProfileSkeleton></UserNavbarProfileSkeleton>
     }
     return (
         <div>

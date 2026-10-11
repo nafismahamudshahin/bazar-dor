@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import CategorySkeleton from '../Skeletons/CategorySkeleton';
 
 const loadCategory = async (): Promise<ICategoryType[]> => {
     const res = await fetch("https://api.abcz.workers.dev/api/bazardor/categories");
@@ -28,7 +29,7 @@ const CategoryLink = () => {
     }, [])
     const path = usePathname();
     if (loading) {
-        return "Loading..."
+        return <CategorySkeleton></CategorySkeleton>
     }
     return (
         <div className="container mx-auto px-3 py-3">

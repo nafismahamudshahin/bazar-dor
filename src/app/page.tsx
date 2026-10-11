@@ -22,7 +22,6 @@ const HomePage = async () => {
           }
         </div>
       </div>
-
       <div>
         <h3 className="text-2xl font-semibold py-3 mt-5 flex gap-2"> <FaCaretDown className='text-green-600 text-3xl' />আজ দাম কমেছে</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
