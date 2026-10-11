@@ -1,23 +1,29 @@
 "use client";
 
+import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
 import { FormEvent } from "react";
 import { FaGithub, FaLongArrowAltLeft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // const formData = new FormData(e.currentTarget);
+        const formData = new FormData(e.currentTarget);
 
-        // const email = formData.get("email");
-        // const password = formData.get("password");
+        const email = formData.get("email");
+        const password = formData.get("password");
 
-        // console.log({
-        //     email,
-        //     password,
-        // });
+        const { user, error } = await signIn.email({
+            email: email as string,
+            password: password as string,
+            callbackURL: "/profile",
+        })
+        console.log({
+            email,
+            password,
+        });
     };
 
     return (
