@@ -45,7 +45,7 @@ const CategoryPage = ({ category }: { category: IProductType[] }) => {
                     </p>
                 </div>
                 {/* products card */}
-                <div className='grid grid-cols-3 gap-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                     {
                         sortedProductsCategory.map(p => <ProductCard key={p.id} product={p}></ProductCard>)
                     }

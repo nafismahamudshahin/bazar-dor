@@ -13,7 +13,7 @@ const NavBar = () => {
                         </div>
                         <div className='leading-none'>
                             <h3 className='font-bold'> বাজার দর</h3>
-                            <p className='text-sm'>{dateTime}</p>
+                            <p className='text-sm text-gray-500'>{dateTime}</p>
                         </div>
                     </Link>
                 </div>

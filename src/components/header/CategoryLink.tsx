@@ -31,15 +31,15 @@ const CategoryLink = () => {
         return "Loading..."
     }
     return (
-        <div className="container mx-auto px-4 py-4">
-            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="container mx-auto px-3 py-1 sm:px-4 sm:py-2 lg:px-6">
+            <div className="flex flex-wrap gap-2 overflow-x-auto sm:gap-3 scrollbar-hide">
                 {categories.map((category) => (
                     <Link
                         key={category.slug}
                         href={`/categorys/${category.slug}`}
-                        className={`inline-flex shrink-0 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium whitespace-nowrap transition-all duration-200 ${path == `/categorys/${category.slug}`
-                            ? "border-[#07963d] bg-[#07963d] text-white shadow-sm"
-                            : "border-[#dce7df] bg-white text-[#26382b] hover:border-[#07963d] hover:bg-[#eef8f0] hover:text-[#07963d]"
+                        className={`flex items-center justify-center gap-1.5 rounded-lg border px-2 py-1.5 text-xs font-medium transition-colors ${path === `/categorys/${category.slug}`
+                            ? "border-[#07963d] bg-[#07963d] text-white"
+                            : "border-[#dce7df] bg-white text-[#26382b] hover:border-[#07963d] hover:bg-[#eef8f0]"
                             }`}
                     >
                         <span>{category.icon}</span>

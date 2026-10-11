@@ -26,7 +26,7 @@ const SingInAndSingUpBtn = () => {
 
                         <Link
                             href="/sign-up"
-                            className="btn inline-flex h-10 items-center justify-center rounded-lg border border-[#07963d] bg-white px-5 text-sm font-medium text-[#07963d] transition-colors hover:bg-[#eef8f0] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07963d]"
+                            className="btn hidden md:inline-flex h-10 items-center justify-center rounded-lg border border-[#07963d] bg-white px-5 text-sm font-medium text-[#07963d] transition-colors hover:bg-[#eef8f0] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07963d]"
                         >
                             Sign Up
                         </Link>
@@ -37,7 +37,7 @@ const SingInAndSingUpBtn = () => {
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button" className='flex items-center gap-2 cursor-pointer'>
                                     <FaUserCircle className='text-4xl text-green-500' />
-                                    <div>
+                                    <div className="hidden md:block">
                                         <h3 className='font-semibold'><UserName></UserName></h3>
                                     </div>
                                 </div>

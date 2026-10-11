@@ -44,7 +44,7 @@ const ProductDetailsCard = async ({ params }: { params: { slug: string } }) => {
 
                         {/* Product Name */}
                         <div className="min-w-0">
-                            <h1 className="text-xl font-bold leading-tight text-[#202820] md:text-3xl">
+                            <h1 className="text-sm font-bold leading-tight text-[#202820] md:text-3xl">
                                 {product.nameBn}
                             </h1>
 
@@ -64,7 +64,7 @@ const ProductDetailsCard = async ({ params }: { params: { slug: string } }) => {
                             আজকের দাম
                         </p>
 
-                        <p className="text-2xl font-extrabold leading-tight text-[#202820]">
+                        <p className="text-sm md:text-2xl font-extrabold leading-tight text-[#202820]">
                             {toBanglaNumber(product.today)}
                         </p>
 
@@ -150,7 +150,7 @@ const ProductDetailsCard = async ({ params }: { params: { slug: string } }) => {
                 </h3>
                 {/* Market Table */}
                 <div className="overflow-x-auto rounded-lg border border-[#e5ece6]">
-                    <table className="table table-md w-full">
+                    <table className="table table-xs md:table-md w-full">
                         <thead>
                             <tr className="bg-[#f7faf7] text-[12px] text-gray-600">
                                 <th className="font-medium">বাজার</th>

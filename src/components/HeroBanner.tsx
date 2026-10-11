@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const HeroBanner = () => {
     return (
-        <div className="px-4">
+        <div>
             <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-green-50 via-white to-emerald-100 p-6 md:p-10 shadow-sm border border-green-100">
                 <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-green-200/30 blur-2xl" />
                 <div className="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-emerald-200/30 blur-2xl" />
